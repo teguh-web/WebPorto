@@ -319,3 +319,14 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealItems.forEach(item => revealObserver.observe(item));
+
+document.querySelectorAll(".detail-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const desc = btn.parentElement.querySelector(".portfolio-desc");
+    desc.classList.toggle("active");
+
+    btn.textContent = desc.classList.contains("active")
+      ? "Tutup detail"
+      : "Lihat detail";
+  });
+});
