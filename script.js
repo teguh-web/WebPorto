@@ -142,6 +142,9 @@ navLinks.forEach(link => {
 //  LANGUAGE SYSTEM
 // ===============================
 
+let currentLang = "id";
+
+
 // SIMPAN TEKS INDONESIA
 const originalText = {
   nav: [...navLinks].map(a => a.textContent),
@@ -151,6 +154,7 @@ const originalText = {
   portfolioCards: [...document.querySelectorAll(".portfolio-box")].map(box => ({
     title: box.querySelector("h4").textContent,
     desc: box.querySelector("p").textContent,
+    detail: box.querySelector(".detail-btn").textContent,
     btn: box.querySelector("a").textContent
   })),
   contactTitle: document.querySelector("#contact h2").textContent,
@@ -175,9 +179,9 @@ const enText = {
   },
   portfolioTitle: "Featured Projects",
   portfolioCards: [
-    { title: "E-commerce Website", desc: "A simple and responsive online store website that uses PHP and MySQL, to make it easy for users to find the tools they need.", btn: "View Project" },
-    { title: "Job Portal Website", desc: "Job vacancy websites to make it easier for people to find the jobs they want and to reduce unemployment rates.", btn: "View Project" },
-    { title: "Mobile UI/UX Design", desc: "Figma based mobile application design with the theme of waste sorting, the aim is to build a culture of environmental care in the community that is able to turn waste into valuable assets.", btn: "View Design" }
+    { title: "E-commerce Website", desc: "A simple and responsive online store website that uses PHP and MySQL, to make it easy for users to find the tools they need.", detail: "View Details", btn: "View Project" },
+    { title: "Job Portal Website", desc: "Job vacancy websites to make it easier for people to find the jobs they want and to reduce unemployment rates.", detail: "View Details", btn: "View Project" },
+    { title: "Mobile UI/UX Design", desc: "Figma based mobile application design with the theme of waste sorting, the aim is to build a culture of environmental care in the community that is able to turn waste into valuable assets.", detail: "View Details", btn: "View Design" }
   ],
   contactTitle: "Contact Me",
   contactDesc: "SInterested in collaborating or just saying hello? Send me a message below!",
@@ -205,6 +209,7 @@ function setEnglish() {
   document.querySelectorAll(".portfolio-box").forEach((box, i) => {
     box.querySelector("h4").textContent = enText.portfolioCards[i].title;
     box.querySelector("p").textContent = enText.portfolioCards[i].desc;
+    box.querySelector(".detail-btn").textContent = enText.portfolioCards[i].detail;
     box.querySelector("a").textContent = enText.portfolioCards[i].btn;
   });
 
@@ -215,6 +220,8 @@ function setEnglish() {
   document.querySelector('textarea[name="message"]').placeholder = enText.form.message;
   document.querySelector(".contact-form button").textContent = enText.form.button;
   document.querySelector(".btn-box a").textContent = enText.downloadCV;
+  syncDetailButtonLang();
+
 }
 
 
@@ -232,6 +239,7 @@ function setIndonesia() {
   document.querySelectorAll(".portfolio-box").forEach((box, i) => {
     box.querySelector("h4").textContent = originalText.portfolioCards[i].title;
     box.querySelector("p").textContent = originalText.portfolioCards[i].desc;
+    box.querySelector(".detail-btn").textContent = originalText.portfolioCards[i].detail;
     box.querySelector("a").textContent = originalText.portfolioCards[i].btn;
   });
 
@@ -242,6 +250,16 @@ function setIndonesia() {
   document.querySelector('textarea[name="message"]').placeholder = originalText.form.message;
   document.querySelector(".contact-form button").textContent = originalText.form.button;
   document.querySelector(".btn-box a").textContent = originalText.downloadCV;
+  syncDetailButtonLang();
+}
+
+function syncDetailButtonLang() {
+  document.querySelectorAll(".portfolio-box").forEach((box, i) => {
+    box.querySelector(".detail-btn").textContent =
+      currentLang === "en"
+        ? enText.portfolioCards[i].detail
+        : originalText.portfolioCards[i].detail;
+  });
 }
 
 
@@ -250,9 +268,13 @@ document.querySelectorAll(".lang-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".lang-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
+
+    currentLang = btn.dataset.lang;
+
     btn.dataset.lang === "en" ? setEnglish() : setIndonesia();
   });
 });
+
 
 // ===============================
 //  ANIMASI ABOUT (ANTI TABRAKAN)
@@ -320,13 +342,21 @@ const revealObserver = new IntersectionObserver(
 
 revealItems.forEach(item => revealObserver.observe(item));
 
-document.querySelectorAll(".detail-btn").forEach(btn => {
+
+document.querySelectorAll(".detail-btn").forEach((btn, i) => {
   btn.addEventListener("click", () => {
     const desc = btn.parentElement.querySelector(".portfolio-desc");
     desc.classList.toggle("active");
 
-    btn.textContent = desc.classList.contains("active")
-      ? "Tutup detail"
-      : "Lihat detail";
+    if (currentLang === "en") {
+      btn.textContent = desc.classList.contains("active")
+        ? "Close Details"
+        : enText.portfolioCards[i].detail;
+    } else {
+      btn.textContent = desc.classList.contains("active")
+        ? "Tutup detail"
+        : originalText.portfolioCards[i].detail;
+    }
   });
 });
+
