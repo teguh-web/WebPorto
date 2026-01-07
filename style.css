@@ -521,6 +521,36 @@ header.show {
   background: #c77dff;
 }
 
+.portfolio-desc {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.portfolio-desc.active {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 15px;
+}
+
+.detail-btn {
+  background: transparent;
+  color: #c77dff;
+  border: 1px solid #c77dff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.detail-btn:hover {
+  background: #c77dff;
+  color: #000;
+}
+
 /*CONTACT*/
 .contact-page {
   min-height: 100vh;
@@ -760,3 +790,4 @@ header.show {
   opacity: 1;
   transform: none;
 }
+
