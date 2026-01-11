@@ -165,8 +165,21 @@ const originalText = {
     message: document.querySelector('textarea[name="message"]').placeholder,
     button: document.querySelector(".contact-form button").textContent
   },
-  downloadCV: document.querySelector(".btn-box a").textContent
+  downloadCV: document.querySelector(".btn-box a").textContent,
+  footer: {
+  title: document.getElementById("footer-title").textContent,
+  location: document.getElementById("footer-location").textContent,
+  edu: document.getElementById("footer-edu").textContent,
+  work: document.getElementById("footer-work").textContent,
+  brandName: document.getElementById("footer-brand-name").textContent,
+  brandDesc: document.getElementById("footer-brand-desc").textContent,
+  socialTitle: document.getElementById("footer-social-title").textContent,
+  github: document.getElementById("footer-github").textContent,
+  linkedin: document.getElementById("footer-linkedin").textContent,
+  instagram: document.getElementById("footer-instagram").textContent
+}
 };
+
 
 // TEKS INGGRIS
 const enText = {
@@ -191,7 +204,20 @@ const enText = {
     message: "Your Message",
     button: "Send Message"
   },
-  downloadCV: "Download Resume"
+  downloadCV: "Download Resume",
+  footer: {
+  title: "Location & Status",
+  location: "📍 Purwokerto, Central Java, Indonesia",
+  edu: "🎓 Software Engineering Student",
+  work: "💼 Open for collaboration & learning",
+  brandName: "Arya Teguh",
+  brandDesc:
+    "Frontend Developer & UI/UX Designer focused on building modern, interactive, and user-friendly web experiences.",
+  socialTitle: "Connect",
+  github: "GitHub",
+  linkedin: "LinkedIn",
+  instagram: "Instagram"
+}
 };
 
 
@@ -221,6 +247,19 @@ function setEnglish() {
   document.querySelector(".contact-form button").textContent = enText.form.button;
   document.querySelector(".btn-box a").textContent = enText.downloadCV;
   syncDetailButtonLang();
+  const f = enText.footer;
+document.getElementById("footer-title").textContent = f.title;
+document.getElementById("footer-location").textContent = f.location;
+document.getElementById("footer-edu").textContent = f.edu;
+document.getElementById("footer-work").textContent = f.work;
+
+document.getElementById("footer-brand-name").textContent = f.brandName;
+document.getElementById("footer-brand-desc").textContent = f.brandDesc;
+document.getElementById("footer-social-title").textContent = f.socialTitle;
+document.getElementById("footer-github").textContent = f.github;
+document.getElementById("footer-linkedin").textContent = f.linkedin;
+document.getElementById("footer-instagram").textContent = f.instagram;
+
 
 }
 
@@ -260,6 +299,20 @@ function syncDetailButtonLang() {
         ? enText.portfolioCards[i].detail
         : originalText.portfolioCards[i].detail;
   });
+  const f = originalText.footer;
+document.getElementById("footer-title").textContent = f.title;
+document.getElementById("footer-location").textContent = f.location;
+document.getElementById("footer-edu").textContent = f.edu;
+document.getElementById("footer-work").textContent = f.work;
+
+document.getElementById("footer-brand-name").textContent = f.brandName;
+document.getElementById("footer-brand-desc").textContent = f.brandDesc;
+document.getElementById("footer-social-title").textContent = f.socialTitle;
+document.getElementById("footer-github").textContent = f.github;
+document.getElementById("footer-linkedin").textContent = f.linkedin;
+document.getElementById("footer-instagram").textContent = f.instagram;
+
+
 }
 
 
@@ -360,3 +413,25 @@ document.querySelectorAll(".detail-btn").forEach((btn, i) => {
   });
 });
 
+/* CURSOR EFFECT*/
+const aurora = document.querySelector(".cursor-aurora");
+
+let mouseX = 0, mouseY = 0;
+let currentX = 0, currentY = 0;
+
+document.addEventListener("mousemove", e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateAurora() {
+  currentX += (mouseX - currentX) * 0.12;
+  currentY += (mouseY - currentY) * 0.12;
+
+  aurora.style.left = currentX + "px";
+  aurora.style.top = currentY + "px";
+
+  requestAnimationFrame(animateAurora);
+}
+
+animateAurora();
