@@ -89,7 +89,10 @@ const aboutText = {
 const hamburger = document.getElementById('hamburger');
 const navbar = document.getElementById('navbar');
 const overlay = document.getElementById('overlay');
-const navLinks = document.querySelectorAll('.navbar a');
+function getNavLinks() {
+  return document.querySelectorAll('.navbar a');
+}
+const navLinks = getNavLinks();
 
 hamburger?.addEventListener('click', () => {
   hamburger.classList.toggle('active');
@@ -151,6 +154,7 @@ const originalText = {
   homeDesc: document.querySelector(".home-content p").innerHTML,
   about: { ...aboutText },
   portfolioTitle: document.querySelector("#portfolio h2").textContent,
+  portfolioDesc: document.getElementById("portfolio-desc").textContent,
   portfolioCards: [...document.querySelectorAll(".portfolio-box")].map(box => ({
     title: box.querySelector("h4").textContent,
     desc: box.querySelector("p").textContent,
@@ -191,6 +195,7 @@ const enText = {
     p3: "I also have a great interest in <em>web animation and minimalist design</em>, to deliver elegant and professional results."
   },
   portfolioTitle: "Featured Projects",
+  portfolioDesc: "Here are some of the projects I have worked on during my learning period.",
   portfolioCards: [
     { title: "E-commerce Website", desc: "A simple and responsive online store website that uses PHP and MySQL, to make it easy for users to find the tools they need.", detail: "View Details", btn: "View Project" },
     { title: "Job Portal Website", desc: "Job vacancy websites to make it easier for people to find the jobs they want and to reduce unemployment rates.", detail: "View Details", btn: "View Project" },
@@ -223,7 +228,11 @@ const enText = {
 
 // APPLY ENGLISH
 function setEnglish() {
-  navLinks.forEach((a, i) => a.textContent = enText.nav[i]);
+  getNavLinks().forEach((a, i) => {
+  const span = a.querySelector("span");
+  if (span) span.textContent = enText.nav[i];
+});
+
   document.querySelector(".home-content p").innerHTML = enText.homeDesc;
 
   aboutText.p1 = enText.about.p1;
@@ -232,6 +241,7 @@ function setEnglish() {
   runAboutTyping();
 
   document.querySelector("#portfolio h2").textContent = enText.portfolioTitle;
+  document.getElementById("portfolio-desc").textContent = enText.portfolioDesc;
   document.querySelectorAll(".portfolio-box").forEach((box, i) => {
     box.querySelector("h4").textContent = enText.portfolioCards[i].title;
     box.querySelector("p").textContent = enText.portfolioCards[i].desc;
@@ -266,7 +276,11 @@ document.getElementById("footer-instagram").textContent = f.instagram;
 
 // APPLY INDONESIA
 function setIndonesia() {
-  navLinks.forEach((a, i) => a.textContent = originalText.nav[i]);
+  getNavLinks().forEach((a, i) => {
+  const span = a.querySelector("span");
+  if (span) span.textContent = originalText.nav[i];
+});
+
   document.querySelector(".home-content p").innerHTML = originalText.homeDesc;
 
   aboutText.p1 = originalText.about.p1;
@@ -275,6 +289,7 @@ function setIndonesia() {
   runAboutTyping();
 
   document.querySelector("#portfolio h2").textContent = originalText.portfolioTitle;
+  document.getElementById("portfolio-desc").textContent = originalText.portfolioDesc;
   document.querySelectorAll(".portfolio-box").forEach((box, i) => {
     box.querySelector("h4").textContent = originalText.portfolioCards[i].title;
     box.querySelector("p").textContent = originalText.portfolioCards[i].desc;
@@ -435,3 +450,29 @@ function animateAurora() {
 }
 
 animateAurora();
+
+// ===============================
+//  ANIMASI project DESC ON HOVER
+// ===============================
+const filterButtons = document.querySelectorAll(".filter-btn");
+const portfolioItems = document.querySelectorAll(".portfolio-box");
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+
+    portfolioItems.forEach(item => {
+      if (filter === "all") {
+        item.classList.remove("hide");
+      } else {
+        item.dataset.category === filter
+          ? item.classList.remove("hide")
+          : item.classList.add("hide");
+      }
+    });
+  });
+});
+
