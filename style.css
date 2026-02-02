@@ -52,6 +52,12 @@ header.show {
   padding: 8px 5px;
   position: relative;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.navbar a i {
+    font-size: 16px;
 }
 
 .navbar a::before {
@@ -248,14 +254,6 @@ header.show {
 .home-img {
   width: 340px;
   height: 340px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid rgba(255,255,255,0.2);
-  box-shadow: 0 0 30px rgba(199, 125, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s ease;
 }
 
 .home-img img {
@@ -263,14 +261,28 @@ header.show {
   height: 100%;
   object-fit: cover;
   transition: 0.3s ease;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+  border-radius:45% 55% 60% 40% / 50% 50% 50% 50%;
+  animation:morph 8s ease-in-out infinite;
+  filter:saturate(110%) contrast(105%);
+  filter:grayscale(100%);
+  transition:filter .5s ease;
 }
 
-.home-img:hover {
-  box-shadow: 0 0 40px rgba(199, 125, 255, 0.6);
+@keyframes morph {
+  0%, 100% {
+    border-radius: 45% 55% 60% 40% / 50% 50% 50% 50%;
+  }
+  50% {
+    border-radius: 60% 40% 45% 55% / 55% 45% 60% 40%;
+  }
 }
 
 .home-img img:hover {
-  transform: scale(1.05);
+  filter:grayscale(0%);
 }
 
 /* Efek mengetik */
@@ -455,13 +467,64 @@ header.show {
   border-radius: 5px;
 }
 
+.project-desc {
+  text-align: center;
+  margin-top: 10px;
+  color: #bbb;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter-buttons {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.filter-btn {
+  background: #111;
+  color: white;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  background: #222;
+}
+
+.filter-btn.active {
+  background: #c77dff;
+  border-color: #c77dff;
+}
+
+/* ===== FILTER SYSTEM SIMPLE ===== */
+
+.portfolio-box.hide {
+  display: none;
+}
+
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 30px;
   max-width: 1200px;
   width: 100%;
+  justify-content: start;
 }
+
 
 .portfolio-box {
   background: rgba(255, 255, 255, 0.05);
@@ -913,3 +976,4 @@ header.show {
   font-size: 0.95rem;
   color: #cbd5e1;
 }
+
