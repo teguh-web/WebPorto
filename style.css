@@ -559,10 +559,13 @@ header.show {
 
 .portfolio-layer h4 {
   font-size: 1.5rem;
-  color: #c77dff;
+  color: #ead0ff;        /* default putih */
   margin-bottom: 8px;
+  transition: color 0.3s ease;
 }
-
+.portfolio-box:hover .portfolio-layer h4 {
+  color:#9d4edd ;       /* berubah warna saat hover */
+}
 .portfolio-layer p {
   font-size: 0.95rem;
   color: #ccc;
@@ -595,6 +598,61 @@ header.show {
   max-height: 200px;
   opacity: 1;
   margin-bottom: 15px;
+}
+
+.portfolio-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.portfolio-image:hover img {
+  filter: brightness(55%) blur(1px);
+}
+.portfolio-box:hover .portfolio-image img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .portfolio-box img {
+    height: 200px;
+  }
+
+  .portfolio-layer {
+    padding: 15px;
+  }
+}
+
+
+.result-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(157, 78, 221, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.portfolio-box:hover .result-btn {
+  opacity: 1;
 }
 
 .detail-btn {
