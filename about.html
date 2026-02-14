@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tentang Saya - Arya Teguh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <header>
+        <h2 class="logo">Arya Teguh.</h2>
 
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <a href="index.html#home">
+                <i class="fas fa-home"></i> <span>Beranda</span>
+            </a>
+
+            <a href="index.html#about">
+                <i class="fas fa-user"></i> <span>Tentang</span>
+            </a>
+
+            <a href="index.html#portfolio">
+                <i class="fas fa-briefcase"></i> <span>Portofolio</span>
+            </a>
+
+            <a href="index.html#contact">
+                <i class="fas fa-envelope"></i> <span>Kontak</span>
+            </a>
+
+            <div class="lang-toggle" id="langToggle">
+                <button class="lang-btn active" data-lang="id">ID</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about-detail-page" id="about-detail">
+        <div class="container">
+            <div class="back-button-wrapper">
+                <a href="index.html#about" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span id="back-text">Kembali</span>
+                </a>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="detail-section reveal">
+                <h2 id="skills-title"><i class="fas fa-code"></i> Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <div>
+                            <h4>Frontend Development</h4>
+                            <p id="skill1-desc">Membuat website responsif dan interaktif menggunakan HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <div>
+                            <h4>UI/UX Design</h4>
+                            <p id="skill2-desc">Merancang interface yang user-friendly dan modern dengan Figma</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h4>Responsive Design</h4>
+                            <p id="skill3-desc">Optimasi tampilan untuk berbagai ukuran layar dan device</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <div>
+                            <h4>Database Management</h4>
+                            <p id="skill4-desc">Mengelola data dengan MySQL dan PHP untuk aplikasi web</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-palette"></i>
+                        <div>
+                            <h4>Graphic Design</h4>
+                            <p id="skill5-desc">Membuat desain grafis menarik dengan Canva dan tools lainnya</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <div>
+                            <h4>Web Animation</h4>
+                            <p id="skill6-desc">Implementasi animasi dan transisi untuk pengalaman user yang lebih baik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE -->
+            <div class="detail-section reveal">
+                <h2 id="experience-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="exp-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="exp-content">
+                            <h4 id="exp1-title">Pelatihan Bootcamp</h4>
+                            <p id="exp1-desc">
+                                Mengikuti pelatihan intensif untuk meningkatkan kemampuan dalam pengembangan web modern dan best practices dalam coding.
+                            </p>
+                            <a href="certificates/bootcamp.pdf" target="_blank" class="cert-btn">
+                                <i class="fas fa-certificate"></i> <span id="cert1-btn">Lihat Sertifikat</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="exp-content">
+                            <h4 id="exp2-title">Web Development</h4>
+                            <p id="exp2-desc">
+                                Berpartisipasi dalam kompetisi web development, mengembangkan website dengan fitur lengkap dan desain yang menarik dalam waktu terbatas.
+                            </p>
+                            <a href="certificates/lomba-web.pdf" target="_blank" class="cert-btn">
+                                <i class="fas fa-certificate"></i> <span id="cert2-btn">Lihat Sertifikat</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="exp-content">
+                            <h4 id="exp3-title">Desain UI/UX</h4>
+                            <p id="exp3-desc">
+                                Mengikuti kompetisi desain UI/UX untuk aplikasi mobile, fokus pada user experience dan visual design yang modern dan intuitif.
+                            </p>
+                            <a href="certificates/lomba-desain.pdf" target="_blank" class="cert-btn">
+                                <i class="fas fa-certificate"></i> <span id="cert3-btn">Lihat Sertifikat</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="detail-section reveal">
+                <h2 id="education-title"><i class="fas fa-school"></i> Education</h2>
+                <div class="education-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="edu-year" id="edu1-year">2012 - 2018</span>
+                            <h4 id="edu1-name">SDN Sukamaju Baru 2</h4>
+                            <p id="edu1-desc">
+                                Menempuh pendidikan dasar dengan mempelajari fondasi akademik seperti matematika, bahasa Indonesia, 
+                                IPA, IPS, dan berbagai mata pelajaran dasar lainnya yang menjadi bekal untuk jenjang selanjutnya.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="edu-year" id="edu2-year">2018 - 2021</span>
+                            <h4 id="edu2-name">SMPN 24 Depok</h4>
+                            <p id="edu2-desc">
+                                Melanjutkan pendidikan menengah dengan memperdalam ilmu pengetahuan umum, sains, dan mulai 
+                                mengembangkan minat di bidang teknologi dan komputer.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot active"></div>
+                        <div class="timeline-content">
+                            <span class="edu-year active" id="edu3-year">2023 - Sekarang</span>
+                            <h4 id="edu3-name">SMK Telkom Purwokerto</h4>
+                            <p class="edu-major" id="edu3-major">Rekayasa Perangkat Lunak (RPL)</p>
+                            <p id="edu3-desc">
+                                Fokus pada pengembangan software, web development, mobile app development, database management, 
+                                UI/UX design, dan berbagai teknologi terkini dalam dunia pemrograman.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOOLBOX -->
+            <div class="detail-section reveal">
+                <h2 id="toolbox-title"><i class="fas fa-toolbox"></i> Toolbox</h2>
+                <p id="toolbox-desc" class="section-desc">Tools dan teknologi yang saya gunakan dalam pengembangan dan desain</p>
+                <div class="toolbox-grid">
+                    <div class="tool-item" title="VS Code">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                        <span>VS Code</span>
+                    </div>
+                    <div class="tool-item" title="GitHub">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                        <span>GitHub</span>
+                    </div>
+                    <div class="tool-item" title="Figma">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                        <span>Figma</span>
+                    </div>
+                    <div class="tool-item" title="Canva">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva">
+                        <span>Canva</span>
+                    </div>
+                    <div class="tool-item" title="Laravel">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel">
+                        <span>Laravel</span>
+                    </div>
+                    <div class="tool-item" title="PHP">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+                        <span>PHP</span>
+                    </div>
+                    <div class="tool-item" title="MySQL">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                        <span>MySQL</span>
+                    </div>
+                    <div class="tool-item" title="JavaScript">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tool-item" title="HTML">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tool-item" title="CSS">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tool-item" title="Android Studio">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio">
+                        <span>Android Studio</span>
+                    </div>
+                    <div class="tool-item" title="Google Colab">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Colab">
+                        <span>Google Colab</span>
+                    </div>
+                    <div class="tool-item" title="MongoDB">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="tool-item" title="C#">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+                        <span>C#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="cursor-aurora"></div>
+    <script src="script.js"></script>
+</body>
+</html>
