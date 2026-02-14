@@ -8,53 +8,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </head>
+</head>
 <body>
     <div class="overlay" id="overlay"></div>
     <header>
-  <h2 class="logo">Arya Teguh.</h2>
+        <h2 class="logo">Arya Teguh.</h2>
 
-  <div class="hamburger" id="hamburger">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </div>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
 
-  <nav class="navbar" id="navbar">
-    <a href="#home" class="active">
-      <i class="fas fa-home"></i> <span>Beranda</span>
-    </a>
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="active">
+                <i class="fas fa-home"></i> <span>Beranda</span>
+            </a>
 
-    <a href="#about">
-      <i class="fas fa-user"></i> <span>Tentang</span>
-    </a>
+            <a href="#about">
+                <i class="fas fa-user"></i> <span>Tentang</span>
+            </a>
 
-    <a href="#portfolio">
-      <i class="fas fa-briefcase"></i> <span>Portofolio</span>
-    </a>
+            <a href="#portfolio">
+                <i class="fas fa-briefcase"></i> <span>Portofolio</span>
+            </a>
 
-    <a href="#contact">
-      <i class="fas fa-envelope"></i> <span>Kontak</span>
-    </a>
+            <a href="#contact">
+                <i class="fas fa-envelope"></i> <span>Kontak</span>
+            </a>
 
-    <div class="lang-toggle" id="langToggle">
-      <button class="lang-btn active" data-lang="id">ID</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
-  </nav>
-</header>
-
+            <div class="lang-toggle" id="langToggle">
+                <button class="lang-btn active" data-lang="id">ID</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </nav>
+    </header>
 
     <section class="home" id="home">
         <div class="home-content reveal-left">
             <h1><span id="name" class="typing-text"></span></h1>
             <h3><span id="role" class="typing-text"></span></h3>
-            <p>
+            <p id="home-desc">
                 Saya Siswa SMK Telkom Purwokerto dengan jurusan Rekayasa Perangkat Lunak (RPL) dengan keahlian di bidang
-                Desain Grafis, UI/UX, Dan Frontend. Saya mampu membuat website menggunakan bahasa pemrograman JS, PHP, MYSQL.
+                Desain Grafis, UI/UX, Dan Frontend. Saya mampu menciptakan website dengan tampilan menarik dan 
+                pengalaman pengguna yang nyaman, sehingga bisnis terlihat lebih profesional dan terpercaya.
             </p>
             <div class="btn-box">
-                <a href="CV Arya Teguh Bagus Prayoga.pdf" target="_blank">Download CV</a>
+                <a href="CV Arya Teguh Bagus Prayoga.pdf" target="_blank" id="download-cv">Download CV</a>
             </div>
             <div class="social">
                 <a href="https://github.com/teguh-web" target="_blank">
@@ -80,24 +80,18 @@
             </div>
 
             <div class="about-info reveal">
-                <h1 id="name" class="typing-text"></h1> <br>
-                <h3 id="role" class="typing-text"></h3>
-                <div class="about-info">
-                    <p class="type-paragraph" id="p1">
-                        Hai! Saya <strong>Arya Teguh Bagus Prayoga</strong>.
-                        Saya Seorang pelajar <strong> Pelajar Smk Telkom Purwokerto</strong> dengan jurusan Rekayasa Perangkat Lunak (RPL).
-                        Saya memiliki pengalaman 1 tahun, dengan spesialisasi dalam pengembangan website menggunakan <em>pemrograman dasar</em> dan pengalaman <em> Design UI/UX.</em>
-                    </p>
+                <h1 id="name-about" class="typing-text">Arya Teguh Bagus Prayoga</h1>
+                <h3 id="role-about" class="typing-text">Frontend Developer & UI/UX Designer</h3>
+                
+                <p class="about-intro" id="about-intro">
+                    Hai! Saya <strong>Arya Teguh Bagus Prayoga</strong>, pelajar SMK Telkom Purwokerto jurusan Rekayasa Perangkat Lunak. 
+                    Saya passionate dalam mengembangkan website modern dan desain UI/UX yang user-friendly.
+                </p>
 
-                    <p class="type-paragraph" id="p2">
-                        Dengan pengalaman di bidang <em>Frontend Development</em> dan <em>UI/UX Design</em>, saya suka menciptakan tampilan modern,
-                        interaktif, dan responsif yang memberikan pengalaman pengguna terbaik.
-                    </p>
-
-                    <p class="type-paragraph" id="p3">
-                        Saya juga memiliki minat besar pada <em>animasi web dan desain minimalis</em> , untuk menghadirkan hasil yang elegan dan profesional.
-                    </p>
-                </div>
+                <a href="about.html" class="learn-more-btn" id="learnMoreBtn">
+                    <span id="learn-more-text">Selengkapnya Tentang Saya</span>
+                    <i class="fas fa-arrow-right" id="learn-more-icon"></i>
+                </a>
 
                 <div class="social">
                     <a href="https://github.com/teguh-web" target="_blank">
@@ -115,134 +109,119 @@
     </section>
 
     <section class="portfolio-page" id="portfolio">
-    <h2>Project Unggulan</h2>
-    <p id="portfolio-desc" class="project-desc">
-    Berikut adalah beberapa proyek yang telah saya kerjakan selama masa belajar saya.
-  </p>
-  <div class="filter-buttons">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="desktop">Desktop</button>
-    <button class="filter-btn" data-filter="mobile">Mobile</button>
-  </div>
-    <div class="portfolio-container">
-
-  <!-- DESKTOP PROJECT 1 -->
-  <div class="portfolio-box reveal" data-category="desktop">
-
-    <div class="portfolio-image">
-      <img src="Project/Pracass.png" alt="Proyek Web Pracass">
-
-      <a class="result-btn" href="https://teguh-web.github.io/WebPracass/" target="_blank">
-        Lihat hasil
-      </a>
-    </div>
-
-    <div class="portfolio-layer">
-      <h4>Web E-commerce</h4>
-      <p class="portfolio-desc">
-        Website toko online sederhana responsif menggunakan PHP dan MySQL, untuk memudahkan pengguna mencari alat perkakas yang di butuhkan.
-      </p>
-      <button class="detail-btn">Lihat detail</button>
-    </div>
-
-  </div>
-
-
-  <!-- DESKTOP PROJECT 2 -->
-  <div class="portfolio-box reveal" data-category="desktop">
-
-    <div class="portfolio-image">
-      <img src="Project/Job Local.png" alt="Proyek Local Bussines">
-
-      <a class="result-btn" href="https://teguh-web.github.io/WebLoker2/" target="_blank">
-        Lihat hasil
-      </a>
-    </div>
-
-    <div class="portfolio-layer">
-      <h4>Web Job Lokal</h4>
-      <p class="portfolio-desc">
-        Website Lowongan pekerjaan untuk memudahkan masyarakat menemukan pekerjaan yang di inginkan dan untuk mengurangi angka pengangguran.
-      </p>
-      <button class="detail-btn">Lihat detail</button>
-    </div>
-
-  </div>
-
-
-  <!-- MOBILE PROJECT -->
-  <div class="portfolio-box reveal" data-category="mobile">
-
-    <div class="portfolio-image">
-      <img src="Project/Eco fresh.png" alt="Eco fresh">
-
-      <a class="result-btn" href="https://www.figma.com/proto/d9DJapqvIXWJBpZPkg2RNT/Tim-Calon-Sukses" target="_blank">
-        Lihat desain
-      </a>
-    </div>
-
-    <div class="portfolio-layer">
-      <h4>UI/UX Mobile</h4>
-      <p class="portfolio-desc">
-        Desain aplikasi mobile berbasis Figma yang bertema pemilahan sampah. tujuannya untuk membangun budaya peduli lingkungan di masyarakat yang mampu mengubah sampah menjadi aset bernilai.
-      </p>
-      <button class="detail-btn">Lihat detail</button>
-    </div>
-
-  </div>
-
-</div>
-
-
-</section>
-
-<section class="contact-page" id="contact">
-    <h2>Hubungi Saya</h2>
-    
-   <div class="contact-container reveal-zoom">
-        <p>Tertarik bekerja sama atau sekadar menyapa? Kirim pesan kepada saya di bawah ini!</p>
-        
-        <form class="contact-form" action="[Tautan ke Skrip PHP/Formspree/dll.]" method="POST">
-            <input type="text" name="name" placeholder="Nama Lengkap" required>
-            <input type="email" name="email" placeholder="Alamat Email" required>
-            <textarea name="message" placeholder="Pesan Anda" required></textarea>
-            <button type="submit">Kirim Pesan</button>
-        </form>
-    </div>
-</section>
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-brand">
-        <h3 id="footer-brand-name">Arya Teguh</h3>
-        <p id="footer-brand-desc">Pengembang Frontend & Desainer UI/UX...</p>
-    </div>
-
-    <div class="footer-status">
-        <h4 id="footer-title">Lokasi & Status</h4>
-        <p id="footer-location">📍 Purwokerto, Jawa Tengah, Indonesia</p>
-        <p id="footer-edu">🎓 Siswa Rekayasa Perangkat Lunak</p>
-        <p id="footer-work">💼 Terbuka untuk kolaborasi & belajar</p>
-    </div>
-
-    <div class="footer-social">
-        <h4 id="footer-social-title">Hubungkan</h4>
-        <div class="social-icons">
-            <a href="#" id="footer-github">GitHub</a>
-            <a href="#" id="footer-linkedin">LinkedIn</a>
-            <a href="#" id="footer-instagram">Instagram</a>
+        <h2 id="portfolio-title">Project Unggulan</h2>
+        <p id="portfolio-desc" class="project-desc">
+            Berikut adalah beberapa proyek yang telah saya kerjakan selama masa belajar saya.
+        </p>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="desktop">Desktop</button>
+            <button class="filter-btn" data-filter="mobile">Mobile</button>
         </div>
-    </div>
-  </div>
+        <div class="portfolio-container">
 
-  <div class="footer-bottom">
-    © 2026 Arya Teguh. All rights reserved.
-  </div>
-</footer>
+            <!-- DESKTOP PROJECT 1 -->
+            <div class="portfolio-box reveal" data-category="desktop">
+                <div class="portfolio-image">
+                    <img src="Project/Pracass.png" alt="Proyek Web Pracass">
+                    <a class="result-btn" href="https://teguh-web.github.io/WebPracass/" target="_blank">
+                        Lihat hasil
+                    </a>
+                </div>
 
+                <div class="portfolio-layer">
+                    <h4 class="portfolio-card-title">Web E-commerce</h4>
+                    <p class="portfolio-desc portfolio-card-desc">
+                        Website toko online sederhana responsif menggunakan PHP dan MySQL, untuk memudahkan pengguna mencari alat perkakas yang di butuhkan.
+                    </p>
+                    <button class="detail-btn">Lihat detail</button>
+                </div>
+            </div>
 
-<div class="cursor-aurora"></div>
+            <!-- DESKTOP PROJECT 2 -->
+            <div class="portfolio-box reveal" data-category="desktop">
+                <div class="portfolio-image">
+                    <img src="Project/Job Local.png" alt="Proyek Local Bussines">
+                    <a class="result-btn" href="https://teguh-web.github.io/WebLoker2/" target="_blank">
+                        Lihat hasil
+                    </a>
+                </div>
+
+                <div class="portfolio-layer">
+                    <h4 class="portfolio-card-title">Web Job Lokal</h4>
+                    <p class="portfolio-desc portfolio-card-desc">
+                        Website Lowongan pekerjaan untuk memudahkan masyarakat menemukan pekerjaan yang di inginkan dan untuk mengurangi angka pengangguran.
+                    </p>
+                    <button class="detail-btn">Lihat detail</button>
+                </div>
+            </div>
+
+            <!-- MOBILE PROJECT -->
+            <div class="portfolio-box reveal" data-category="mobile">
+                <div class="portfolio-image">
+                    <img src="Project/Eco fresh.png" alt="Eco fresh">
+                    <a class="result-btn" href="https://www.figma.com/proto/d9DJapqvIXWJBpZPkg2RNT/Tim-Calon-Sukses" target="_blank">
+                        Lihat desain
+                    </a>
+                </div>
+
+                <div class="portfolio-layer">
+                    <h4 class="portfolio-card-title">UI/UX Mobile</h4>
+                    <p class="portfolio-desc portfolio-card-desc">
+                        Desain aplikasi mobile berbasis Figma yang bertema pemilahan sampah. tujuannya untuk membangun budaya peduli lingkungan di masyarakat yang mampu mengubah sampah menjadi aset bernilai.
+                    </p>
+                    <button class="detail-btn">Lihat detail</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-page" id="contact">
+        <h2 id="contact-title">Hubungi Saya</h2>
+        
+        <div class="contact-container reveal-zoom">
+            <p id="contact-desc">Tertarik bekerja sama atau sekadar menyapa? Kirim pesan kepada saya di bawah ini!</p>
+            
+            <form class="contact-form" action="[Tautan ke Skrip PHP/Formspree/dll.]" method="POST">
+                <input type="text" name="name" id="contact-name" placeholder="Nama Lengkap" required>
+                <input type="email" name="email" id="contact-email" placeholder="Alamat Email" required>
+                <textarea name="message" id="contact-message" placeholder="Pesan Anda" required></textarea>
+                <button type="submit" id="contact-btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3 id="footer-brand-name">Arya Teguh</h3>
+                <p id="footer-brand-desc">Pengembang Frontend & Desainer UI/UX...</p>
+            </div>
+
+            <div class="footer-status">
+                <h4 id="footer-title">Lokasi & Status</h4>
+                <p id="footer-location">📍 Purwokerto, Jawa Tengah, Indonesia</p>
+                <p id="footer-edu">🎓 Siswa Rekayasa Perangkat Lunak</p>
+                <p id="footer-work">💼 Terbuka untuk kolaborasi & belajar</p>
+            </div>
+
+            <div class="footer-social">
+                <h4 id="footer-social-title">Hubungkan</h4>
+                <div class="social-icons">
+                    <a href="#" id="footer-github">GitHub</a>
+                    <a href="#" id="footer-linkedin">LinkedIn</a>
+                    <a href="#" id="footer-instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Arya Teguh. All rights reserved.
+        </div>
+    </footer>
+
+    <div class="cursor-aurora"></div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
