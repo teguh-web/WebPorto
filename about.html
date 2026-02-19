@@ -9,7 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="hide-navbar">
     <div class="overlay" id="overlay"></div>
     <header>
         <h2 class="logo">Arya Teguh.</h2>
@@ -54,20 +54,20 @@
 
             <!-- SKILLS -->
             <div class="detail-section reveal">
-                <h2 id="skills-title"><i class="fas fa-code"></i> Skills</h2>
+                <h2><i class="fas fa-code"></i> <span id="skills-title">Skills</span></h2>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <i class="fas fa-laptop-code"></i>
                         <div>
                             <h4>Frontend Development</h4>
-                            <p id="skill1-desc">Membuat website responsif dan interaktif menggunakan HTML, CSS, JavaScript</p>
+                            <p id="skill1-desc">Membuat website responsif dan interaktif agar bisnis terlihat lebih profesional dan terpercaya.</p>
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-paint-brush"></i>
                         <div>
                             <h4>UI/UX Design</h4>
-                            <p id="skill2-desc">Merancang interface yang user-friendly dan modern dengan Figma</p>
+                            <p id="skill2-desc">Merancang antarmuka yang ramah pengguna dan modern dengan Figma</p>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -103,7 +103,7 @@
 
             <!-- EXPERIENCE -->
             <div class="detail-section reveal">
-                <h2 id="experience-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                <h2><i class="fas fa-briefcase"></i> <span id="experience-title">Experience</span></h2>
                 <div class="experience-list">
                     <div class="experience-item">
                         <div class="exp-icon">
@@ -112,9 +112,9 @@
                         <div class="exp-content">
                             <h4 id="exp1-title">Pelatihan Bootcamp</h4>
                             <p id="exp1-desc">
-                                Mengikuti pelatihan intensif untuk meningkatkan kemampuan dalam pengembangan web modern dan best practices dalam coding.
+                                Mengikuti pelatihan intensif untuk meningkatkan kemampuan dalam pengembangan web modern dan praktik terbaik dalam coding.
                             </p>
-                            <a href="certificates/bootcamp.pdf" target="_blank" class="cert-btn">
+                            <a href="Experience/Sertif Digiup.pdf" target="_blank" class="cert-btn">
                                 <i class="fas fa-certificate"></i> <span id="cert1-btn">Lihat Sertifikat</span>
                             </a>
                         </div>
@@ -129,7 +129,7 @@
                             <p id="exp2-desc">
                                 Berpartisipasi dalam kompetisi web development, mengembangkan website dengan fitur lengkap dan desain yang menarik dalam waktu terbatas.
                             </p>
-                            <a href="certificates/lomba-web.pdf" target="_blank" class="cert-btn">
+                            <a href="Experience/Sertif Web.pdf" target="_blank" class="cert-btn">
                                 <i class="fas fa-certificate"></i> <span id="cert2-btn">Lihat Sertifikat</span>
                             </a>
                         </div>
@@ -144,7 +144,7 @@
                             <p id="exp3-desc">
                                 Mengikuti kompetisi desain UI/UX untuk aplikasi mobile, fokus pada user experience dan visual design yang modern dan intuitif.
                             </p>
-                            <a href="certificates/lomba-desain.pdf" target="_blank" class="cert-btn">
+                            <a href="Experience/UX.pdf" target="_blank" class="cert-btn">
                                 <i class="fas fa-certificate"></i> <span id="cert3-btn">Lihat Sertifikat</span>
                             </a>
                         </div>
@@ -154,12 +154,12 @@
 
             <!-- EDUCATION -->
             <div class="detail-section reveal">
-                <h2 id="education-title"><i class="fas fa-school"></i> Education</h2>
+                <h2><i class="fas fa-school"></i> <span id="education-title">Education</span></h2>
                 <div class="education-timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <span class="edu-year" id="edu1-year">2012 - 2018</span>
+                            <span class="edu-year" id="edu1-year">2015 - 2021</span>
                             <h4 id="edu1-name">SDN Sukamaju Baru 2</h4>
                             <p id="edu1-desc">
                                 Menempuh pendidikan dasar dengan mempelajari fondasi akademik seperti matematika, bahasa Indonesia, 
@@ -171,7 +171,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <span class="edu-year" id="edu2-year">2018 - 2021</span>
+                            <span class="edu-year" id="edu2-year">2021 - 2024</span>
                             <h4 id="edu2-name">SMPN 24 Depok</h4>
                             <p id="edu2-desc">
                                 Melanjutkan pendidikan menengah dengan memperdalam ilmu pengetahuan umum, sains, dan mulai 
@@ -183,7 +183,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot active"></div>
                         <div class="timeline-content">
-                            <span class="edu-year active" id="edu3-year">2023 - Sekarang</span>
+                            <span class="edu-year active" id="edu3-year">2024 - Sekarang</span>
                             <h4 id="edu3-name">SMK Telkom Purwokerto</h4>
                             <p class="edu-major" id="edu3-major">Rekayasa Perangkat Lunak (RPL)</p>
                             <p id="edu3-desc">
@@ -197,7 +197,7 @@
 
             <!-- TOOLBOX -->
             <div class="detail-section reveal">
-                <h2 id="toolbox-title"><i class="fas fa-toolbox"></i> Toolbox</h2>
+                <h2><i class="fas fa-toolbox"></i> <span id="toolbox-title">Toolbox</span></h2>
                 <p id="toolbox-desc" class="section-desc">Tools dan teknologi yang saya gunakan dalam pengembangan dan desain</p>
                 <div class="toolbox-grid">
                     <div class="tool-item" title="VS Code">
@@ -234,11 +234,11 @@
                     </div>
                     <div class="tool-item" title="HTML">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                        <span>HTML5</span>
+                        <span>HTML</span>
                     </div>
                     <div class="tool-item" title="CSS">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                        <span>CSS3</span>
+                        <span>CSS</span>
                     </div>
                     <div class="tool-item" title="Android Studio">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio">
