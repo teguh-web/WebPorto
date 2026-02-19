@@ -2,7 +2,6 @@
 //  UTILITY FUNCTIONS
 // ===============================
 
-// Fungsi helper untuk get elemen dengan aman
 function safeGetElement(id) {
   return document.getElementById(id);
 }
@@ -135,10 +134,20 @@ window.addEventListener("scroll", () => {
 // ===============================
 navLinks.forEach(link => {
   link.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+    const href = link.getAttribute("href");
+
+    // Kalau link mengarah ke halaman lain (misal index.html#about), biarkan browser navigasi biasa
+    if (href.includes("index.html")) {
+      return; // tidak perlu preventDefault, biarkan berpindah halaman
+    }
+
+    // Kalau link adalah anchor di halaman yang sama (#home, #about, dll)
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     }
   });
 });
@@ -169,10 +178,9 @@ if (learnMoreBtn && aboutDetail) {
 }
 
 // ===============================
-//  LANGUAGE SYSTEM - SAFE VERSION
+//  LANGUAGE SYSTEM
 // ===============================
 
-// Fungsi untuk get text dengan aman
 function safeGetText(id, defaultValue = "") {
   const el = safeGetElement(id);
   return el ? el.textContent : defaultValue;
@@ -188,7 +196,7 @@ function safeGetPlaceholder(id, defaultValue = "") {
   return el ? el.placeholder : defaultValue;
 }
 
-// SIMPAN TEKS INDONESIA dengan pengecekan aman
+// SIMPAN TEKS INDONESIA
 const originalText = {
   nav: Array.from(navLinks).map(a => {
     const span = a.querySelector("span");
@@ -246,6 +254,37 @@ const originalText = {
     github: safeGetText("footer-github", "GitHub"),
     linkedin: safeGetText("footer-linkedin", "LinkedIn"),
     instagram: safeGetText("footer-instagram", "Instagram")
+  },
+
+  // ── TAMBAHAN: Teks halaman about.html ──
+  about: {
+    backText: "Kembali",
+    skill1Desc: "Membuat website responsif dan interaktif agar bisnis terlihat lebih profesional dan terpercaya.",
+    skill2Desc: "Merancang antarmuka yang ramah pengguna dan modern dengan Figma",
+    skill3Desc: "Optimasi tampilan untuk berbagai ukuran layar dan device",
+    skill4Desc: "Mengelola data dengan MySQL dan PHP untuk aplikasi web",
+    skill5Desc: "Membuat desain grafis menarik dengan Canva dan tools lainnya",
+    skill6Desc: "Implementasi animasi dan transisi untuk pengalaman user yang lebih baik",
+    exp1Title: "Pelatihan Bootcamp",
+    exp1Desc: "Mengikuti pelatihan intensif untuk meningkatkan kemampuan dalam pengembangan web modern dan praktik terbaik dalam coding.",
+    cert1Btn: "Lihat Sertifikat",
+    exp2Title: "Web Development",
+    exp2Desc: "Berpartisipasi dalam kompetisi web development, mengembangkan website dengan fitur lengkap dan desain yang menarik dalam waktu terbatas.",
+    cert2Btn: "Lihat Sertifikat",
+    exp3Title: "Desain UI/UX",
+    exp3Desc: "Mengikuti kompetisi desain UI/UX untuk aplikasi mobile, fokus pada user experience dan visual design yang modern dan intuitif.",
+    cert3Btn: "Lihat Sertifikat",
+    edu1Year: "2012 - 2018",
+    edu1Name: "SDN Sukamaju Baru 2",
+    edu1Desc: "Menempuh pendidikan dasar dengan mempelajari fondasi akademik seperti matematika, bahasa Indonesia, IPA, IPS, dan berbagai mata pelajaran dasar lainnya yang menjadi bekal untuk jenjang selanjutnya.",
+    edu2Year: "2018 - 2021",
+    edu2Name: "SMPN 24 Depok",
+    edu2Desc: "Melanjutkan pendidikan menengah dengan memperdalam ilmu pengetahuan umum, sains, dan mulai mengembangkan minat di bidang teknologi dan komputer.",
+    edu3Year: "2023 - Sekarang",
+    edu3Name: "SMK Telkom Purwokerto",
+    edu3Major: "Rekayasa Perangkat Lunak (RPL)",
+    edu3Desc: "Fokus pada pengembangan software, web development, mobile app development, database management, UI/UX design, dan berbagai teknologi terkini dalam dunia pemrograman.",
+    toolboxDesc: "Tools dan teknologi yang saya gunakan dalam pengembangan dan desain"
   }
 };
 
@@ -279,24 +318,9 @@ const enText = {
   portfolioTitle: "Featured Projects",
   portfolioDesc: "Here are some of the projects I have worked on during my learning period.",
   portfolioCards: [
-    { 
-      title: "E-commerce Website", 
-      desc: "A simple and responsive online store website that uses PHP and MySQL, to make it easy for users to find the tools they need.", 
-      detail: "View Details", 
-      btn: "View Project" 
-    },
-    { 
-      title: "Job Portal Website", 
-      desc: "Job vacancy websites to make it easier for people to find the jobs they want and to reduce unemployment rates.", 
-      detail: "View Details", 
-      btn: "View Project" 
-    },
-    { 
-      title: "Mobile UI/UX Design", 
-      desc: "Figma based mobile application design with the theme of waste sorting, the aim is to build a culture of environmental care in the community that is able to turn waste into valuable assets.", 
-      detail: "View Details", 
-      btn: "View Design" 
-    }
+    { title: "E-commerce Website", desc: "A simple and responsive online store website that uses PHP and MySQL, to make it easy for users to find the tools they need.", detail: "View Details", btn: "View Project" },
+    { title: "Job Portal Website", desc: "Job vacancy websites to make it easier for people to find the jobs they want and to reduce unemployment rates.", detail: "View Details", btn: "View Project" },
+    { title: "Mobile UI/UX Design", desc: "Figma based mobile application design with the theme of waste sorting, the aim is to build a culture of environmental care in the community that is able to turn waste into valuable assets.", detail: "View Details", btn: "View Design" }
   ],
   contactTitle: "Contact Me",
   contactDesc: "Interested in collaborating or just saying hello? Send me a message below!",
@@ -318,6 +342,37 @@ const enText = {
     github: "GitHub",
     linkedin: "LinkedIn",
     instagram: "Instagram"
+  },
+
+  // ── TAMBAHAN: Teks halaman about.html (Inggris) ──
+  about: {
+    backText: "Back",
+    skill1Desc: "Building responsive and interactive websites to make your business look more professional and trustworthy.",
+    skill2Desc: "Designing user-friendly and modern interfaces with Figma",
+    skill3Desc: "Optimizing layouts for various screen sizes and devices",
+    skill4Desc: "Managing data with MySQL and PHP for web applications",
+    skill5Desc: "Creating attractive graphic designs with Canva and other tools",
+    skill6Desc: "Implementing animations and transitions for a better user experience",
+    exp1Title: "Bootcamp Training",
+    exp1Desc: "Attended an intensive training program to improve skills in modern web development and coding best practices.",
+    cert1Btn: "View Certificate",
+    exp2Title: "Web Development",
+    exp2Desc: "Participated in a web development competition, building a fully-featured website with an attractive design within a limited time.",
+    cert2Btn: "View Certificate",
+    exp3Title: "UI/UX Design",
+    exp3Desc: "Participated in a UI/UX design competition for a mobile application, focusing on user experience and modern, intuitive visual design.",
+    cert3Btn: "View Certificate",
+    edu1Year: "2012 - 2018",
+    edu1Name: "SDN Sukamaju Baru 2",
+    edu1Desc: "Completed primary education, building academic foundations in mathematics, Indonesian language, science, social studies, and other core subjects that prepared me for the next level.",
+    edu2Year: "2018 - 2021",
+    edu2Name: "SMPN 24 Depok",
+    edu2Desc: "Continued secondary education, deepening knowledge in general science, and began developing an interest in technology and computers.",
+    edu3Year: "2023 - Present",
+    edu3Name: "SMK Telkom Purwokerto",
+    edu3Major: "Software Engineering",
+    edu3Desc: "Focused on software development, web development, mobile app development, database management, UI/UX design, and the latest technologies in the world of programming.",
+    toolboxDesc: "Tools and technologies I use in development and design"
   }
 };
 
@@ -337,6 +392,46 @@ function safeSetPlaceholder(id, text) {
   if (el) el.placeholder = text;
 }
 
+// ── Helper: apply teks about.html ──
+function applyAboutLang(t) {
+  // Tombol kembali
+  safeSetText("back-text", t.backText);
+
+  // Skills
+  safeSetText("skill1-desc", t.skill1Desc);
+  safeSetText("skill2-desc", t.skill2Desc);
+  safeSetText("skill3-desc", t.skill3Desc);
+  safeSetText("skill4-desc", t.skill4Desc);
+  safeSetText("skill5-desc", t.skill5Desc);
+  safeSetText("skill6-desc", t.skill6Desc);
+
+  // Experience
+  safeSetText("exp1-title", t.exp1Title);
+  safeSetText("exp1-desc", t.exp1Desc);
+  safeSetText("cert1-btn", t.cert1Btn);
+  safeSetText("exp2-title", t.exp2Title);
+  safeSetText("exp2-desc", t.exp2Desc);
+  safeSetText("cert2-btn", t.cert2Btn);
+  safeSetText("exp3-title", t.exp3Title);
+  safeSetText("exp3-desc", t.exp3Desc);
+  safeSetText("cert3-btn", t.cert3Btn);
+
+  // Education
+  safeSetText("edu1-year", t.edu1Year);
+  safeSetText("edu1-name", t.edu1Name);
+  safeSetText("edu1-desc", t.edu1Desc);
+  safeSetText("edu2-year", t.edu2Year);
+  safeSetText("edu2-name", t.edu2Name);
+  safeSetText("edu2-desc", t.edu2Desc);
+  safeSetText("edu3-year", t.edu3Year);
+  safeSetText("edu3-name", t.edu3Name);
+  safeSetText("edu3-major", t.edu3Major);
+  safeSetText("edu3-desc", t.edu3Desc);
+
+  // Toolbox
+  safeSetText("toolbox-desc", t.toolboxDesc);
+}
+
 // APPLY ENGLISH
 function setEnglish() {
   // Nav links
@@ -345,25 +440,19 @@ function setEnglish() {
     if (span && enText.nav[i]) span.textContent = enText.nav[i];
   });
 
-  // Home
   safeSetInnerHTML("home-desc", enText.homeDesc);
-
-  // About
   safeSetInnerHTML("about-intro", enText.aboutIntro);
-  
-  // Learn More Button
+
   const isExpanded = aboutDetail?.classList.contains('active');
   if (learnMoreText) {
     learnMoreText.textContent = isExpanded ? enText.learnMoreClose : enText.learnMore;
   }
 
-  // About Detail Sections
-  safeSetText("skills-title", `💻 ${enText.skillsTitle}`);
-  safeSetText("experience-title", `💼 ${enText.experienceTitle}`);
-  safeSetText("education-title", `🎓 ${enText.educationTitle}`);
-  safeSetText("toolbox-title", `🛠️ ${enText.toolboxTitle}`);
+  safeSetText("skills-title", enText.skillsTitle);
+  safeSetText("experience-title", enText.experienceTitle);
+  safeSetText("education-title", enText.educationTitle);
+  safeSetText("toolbox-title", enText.toolboxTitle);
 
-  // Experience
   safeSetText("exp1-role", enText.exp1.role);
   safeSetText("exp1-year", enText.exp1.year);
   safeSetText("exp1-desc", enText.exp1.desc);
@@ -371,23 +460,20 @@ function setEnglish() {
   safeSetText("exp2-year", enText.exp2.year);
   safeSetText("exp2-desc", enText.exp2.desc);
 
-  // Education
   safeSetText("edu1-school", enText.edu1.school);
   safeSetText("edu1-year", enText.edu1.year);
   safeSetText("edu1-major", enText.edu1.major);
   safeSetText("edu1-desc", enText.edu1.desc);
 
-  // Portfolio
   safeSetText("portfolio-title", enText.portfolioTitle);
   safeSetText("portfolio-desc", enText.portfolioDesc);
-  
+
   safeGetElements(".portfolio-box").forEach((box, i) => {
     if (enText.portfolioCards[i]) {
       const titleEl = box.querySelector(".portfolio-card-title");
       const descEl = box.querySelector(".portfolio-card-desc");
       const detailBtn = box.querySelector(".detail-btn");
       const resultBtn = box.querySelector(".result-btn");
-      
       if (titleEl) titleEl.textContent = enText.portfolioCards[i].title;
       if (descEl) descEl.textContent = enText.portfolioCards[i].desc;
       if (detailBtn) detailBtn.textContent = enText.portfolioCards[i].detail;
@@ -395,7 +481,6 @@ function setEnglish() {
     }
   });
 
-  // Contact
   safeSetText("contact-title", enText.contactTitle);
   safeSetText("contact-desc", enText.contactDesc);
   safeSetPlaceholder("contact-name", enText.form.name);
@@ -404,7 +489,6 @@ function setEnglish() {
   safeSetText("contact-btn", enText.form.button);
   safeSetText("download-cv", enText.downloadCV);
 
-  // Footer
   const f = enText.footer;
   safeSetText("footer-title", f.title);
   safeSetText("footer-location", f.location);
@@ -416,35 +500,31 @@ function setEnglish() {
   safeSetText("footer-github", f.github);
   safeSetText("footer-linkedin", f.linkedin);
   safeSetText("footer-instagram", f.instagram);
+
+  // ── TAMBAHAN: terapkan ke about.html ──
+  applyAboutLang(enText.about);
 }
 
 // APPLY INDONESIA
 function setIndonesia() {
-  // Nav links
   getNavLinks().forEach((a, i) => {
     const span = a.querySelector("span");
     if (span && originalText.nav[i]) span.textContent = originalText.nav[i];
   });
 
-  // Home
   safeSetInnerHTML("home-desc", originalText.homeDesc);
-
-  // About
   safeSetInnerHTML("about-intro", originalText.aboutIntro);
 
-  // Learn More Button
   const isExpanded = aboutDetail?.classList.contains('active');
   if (learnMoreText) {
     learnMoreText.textContent = isExpanded ? originalText.learnMoreClose : originalText.learnMore;
   }
 
-  // About Detail Sections
-  safeSetText("skills-title", `💻 ${originalText.skillsTitle}`);
-  safeSetText("experience-title", `💼 ${originalText.experienceTitle}`);
-  safeSetText("education-title", `🎓 ${originalText.educationTitle}`);
-  safeSetText("toolbox-title", `🛠️ ${originalText.toolboxTitle}`);
+  safeSetText("skills-title", enText.skillsTitle);
+  safeSetText("experience-title", enText.experienceTitle);
+  safeSetText("education-title", enText.educationTitle);
+  safeSetText("toolbox-title", enText.toolboxTitle);
 
-  // Experience
   safeSetText("exp1-role", originalText.exp1.role);
   safeSetText("exp1-year", originalText.exp1.year);
   safeSetText("exp1-desc", originalText.exp1.desc);
@@ -452,23 +532,20 @@ function setIndonesia() {
   safeSetText("exp2-year", originalText.exp2.year);
   safeSetText("exp2-desc", originalText.exp2.desc);
 
-  // Education
   safeSetText("edu1-school", originalText.edu1.school);
   safeSetText("edu1-year", originalText.edu1.year);
   safeSetText("edu1-major", originalText.edu1.major);
   safeSetText("edu1-desc", originalText.edu1.desc);
 
-  // Portfolio
   safeSetText("portfolio-title", originalText.portfolioTitle);
   safeSetText("portfolio-desc", originalText.portfolioDesc);
-  
+
   safeGetElements(".portfolio-box").forEach((box, i) => {
     if (originalText.portfolioCards[i]) {
       const titleEl = box.querySelector(".portfolio-card-title");
       const descEl = box.querySelector(".portfolio-card-desc");
       const detailBtn = box.querySelector(".detail-btn");
       const resultBtn = box.querySelector(".result-btn");
-      
       if (titleEl) titleEl.textContent = originalText.portfolioCards[i].title;
       if (descEl) descEl.textContent = originalText.portfolioCards[i].desc;
       if (detailBtn) detailBtn.textContent = originalText.portfolioCards[i].detail;
@@ -476,7 +553,6 @@ function setIndonesia() {
     }
   });
 
-  // Contact
   safeSetText("contact-title", originalText.contactTitle);
   safeSetText("contact-desc", originalText.contactDesc);
   safeSetPlaceholder("contact-name", originalText.form.name);
@@ -485,7 +561,6 @@ function setIndonesia() {
   safeSetText("contact-btn", originalText.form.button);
   safeSetText("download-cv", originalText.downloadCV);
 
-  // Footer
   const f = originalText.footer;
   safeSetText("footer-title", f.title);
   safeSetText("footer-location", f.location);
@@ -497,6 +572,9 @@ function setIndonesia() {
   safeSetText("footer-github", f.github);
   safeSetText("footer-linkedin", f.linkedin);
   safeSetText("footer-instagram", f.instagram);
+
+  // ── TAMBAHAN: terapkan ke about.html ──
+  applyAboutLang(originalText.about);
 }
 
 // BUTTON EVENT
@@ -510,8 +588,29 @@ safeGetElements(".lang-btn").forEach(btn => {
   });
 });
 
+// ── SINKRONISASI BAHASA ANTAR HALAMAN ──
+// Saat about.html dibuka, cek apakah user sudah pilih EN sebelumnya
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("preferredLang");
+  if (savedLang === "en") {
+    currentLang = "en";
+    // Tandai tombol EN sebagai aktif
+    safeGetElements(".lang-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === "en");
+    });
+    setEnglish();
+  }
+});
+
+// Simpan pilihan bahasa ke localStorage saat berganti
+safeGetElements(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    localStorage.setItem("preferredLang", btn.dataset.lang);
+  });
+});
+
 // ===============================
-//  SCROLL REVEAL (UP & DOWN)
+//  SCROLL REVEAL
 // ===============================
 const revealItems = safeGetElements(
   ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
@@ -528,9 +627,7 @@ if (revealItems.length > 0) {
         }
       });
     },
-    {
-      threshold: 0.15
-    }
+    { threshold: 0.15 }
   );
 
   revealItems.forEach(item => revealObserver.observe(item));
@@ -577,10 +674,8 @@ if (aurora) {
   function animateAurora() {
     currentX += (mouseX - currentX) * 0.12;
     currentY += (mouseY - currentY) * 0.12;
-
     aurora.style.left = currentX + "px";
     aurora.style.top = currentY + "px";
-
     requestAnimationFrame(animateAurora);
   }
 
