@@ -136,12 +136,10 @@ navLinks.forEach(link => {
   link.addEventListener("click", e => {
     const href = link.getAttribute("href");
 
-    // Kalau link mengarah ke halaman lain (misal index.html#about), biarkan browser navigasi biasa
     if (href.includes("index.html")) {
-      return; // tidak perlu preventDefault, biarkan berpindah halaman
+      return;
     }
 
-    // Kalau link adalah anchor di halaman yang sama (#home, #about, dll)
     if (href.startsWith("#")) {
       e.preventDefault();
       const target = document.querySelector(href);
@@ -196,7 +194,6 @@ function safeGetPlaceholder(id, defaultValue = "") {
   return el ? el.placeholder : defaultValue;
 }
 
-// SIMPAN TEKS INDONESIA
 const originalText = {
   nav: Array.from(navLinks).map(a => {
     const span = a.querySelector("span");
@@ -255,8 +252,6 @@ const originalText = {
     linkedin: safeGetText("footer-linkedin", "LinkedIn"),
     instagram: safeGetText("footer-instagram", "Instagram")
   },
-
-  // ── TAMBAHAN: Teks halaman about.html ──
   about: {
     backText: "Kembali",
     skill1Desc: "Membuat website responsif dan interaktif agar bisnis terlihat lebih profesional dan terpercaya.",
@@ -267,20 +262,20 @@ const originalText = {
     skill6Desc: "Implementasi animasi dan transisi untuk pengalaman user yang lebih baik",
     exp1Title: "Pelatihan Bootcamp",
     exp1Desc: "Mengikuti pelatihan intensif untuk meningkatkan kemampuan dalam pengembangan web modern dan praktik terbaik dalam coding.",
-    cert1Btn: "Lihat Sertifikat",
+    cert1Btn: "Lihat Penghargaan",
     exp2Title: "Web Development",
     exp2Desc: "Berpartisipasi dalam kompetisi web development, mengembangkan website dengan fitur lengkap dan desain yang menarik dalam waktu terbatas.",
-    cert2Btn: "Lihat Sertifikat",
+    cert2Btn: "Lihat Penghargaan",
     exp3Title: "Desain UI/UX",
     exp3Desc: "Mengikuti kompetisi desain UI/UX untuk aplikasi mobile, fokus pada user experience dan visual design yang modern dan intuitif.",
-    cert3Btn: "Lihat Sertifikat",
-    edu1Year: "2012 - 2018",
+    cert3Btn: "Lihat Penghargaan",
+    edu1Year: "2015 - 2021",
     edu1Name: "SDN Sukamaju Baru 2",
     edu1Desc: "Menempuh pendidikan dasar dengan mempelajari fondasi akademik seperti matematika, bahasa Indonesia, IPA, IPS, dan berbagai mata pelajaran dasar lainnya yang menjadi bekal untuk jenjang selanjutnya.",
-    edu2Year: "2018 - 2021",
+    edu2Year: "2021 - 2024",
     edu2Name: "SMPN 24 Depok",
     edu2Desc: "Melanjutkan pendidikan menengah dengan memperdalam ilmu pengetahuan umum, sains, dan mulai mengembangkan minat di bidang teknologi dan komputer.",
-    edu3Year: "2023 - Sekarang",
+    edu3Year: "2024 - Sekarang",
     edu3Name: "SMK Telkom Purwokerto",
     edu3Major: "Rekayasa Perangkat Lunak (RPL)",
     edu3Desc: "Fokus pada pengembangan software, web development, mobile app development, database management, UI/UX design, dan berbagai teknologi terkini dalam dunia pemrograman.",
@@ -288,7 +283,6 @@ const originalText = {
   }
 };
 
-// TEKS INGGRIS
 const enText = {
   nav: ["Home", "About", "Portfolio", "Contact"],
   homeDesc: "I am a student at Telkom Purwokerto vocational school, majoring in Software Engineering, specializing in Graphic Design, UI/UX, and Frontend Development. I help create visually appealing and user-friendly websites that enhance a business professionalism and build customer trust.",
@@ -343,8 +337,6 @@ const enText = {
     linkedin: "LinkedIn",
     instagram: "Instagram"
   },
-
-  // ── TAMBAHAN: Teks halaman about.html (Inggris) ──
   about: {
     backText: "Back",
     skill1Desc: "Building responsive and interactive websites to make your business look more professional and trustworthy.",
@@ -355,20 +347,20 @@ const enText = {
     skill6Desc: "Implementing animations and transitions for a better user experience",
     exp1Title: "Bootcamp Training",
     exp1Desc: "Attended an intensive training program to improve skills in modern web development and coding best practices.",
-    cert1Btn: "View Certificate",
+    cert1Btn: "View Award",
     exp2Title: "Web Development",
     exp2Desc: "Participated in a web development competition, building a fully-featured website with an attractive design within a limited time.",
-    cert2Btn: "View Certificate",
+    cert2Btn: "View Award",
     exp3Title: "UI/UX Design",
     exp3Desc: "Participated in a UI/UX design competition for a mobile application, focusing on user experience and modern, intuitive visual design.",
-    cert3Btn: "View Certificate",
-    edu1Year: "2012 - 2018",
+    cert3Btn: "View Award",
+    edu1Year: "2015 - 2021",
     edu1Name: "SDN Sukamaju Baru 2",
     edu1Desc: "Completed primary education, building academic foundations in mathematics, Indonesian language, science, social studies, and other core subjects that prepared me for the next level.",
-    edu2Year: "2018 - 2021",
+    edu2Year: "2021 - 2024",
     edu2Name: "SMPN 24 Depok",
     edu2Desc: "Continued secondary education, deepening knowledge in general science, and began developing an interest in technology and computers.",
-    edu3Year: "2023 - Present",
+    edu3Year: "2024 - Present",
     edu3Name: "SMK Telkom Purwokerto",
     edu3Major: "Software Engineering",
     edu3Desc: "Focused on software development, web development, mobile app development, database management, UI/UX design, and the latest technologies in the world of programming.",
@@ -376,7 +368,6 @@ const enText = {
   }
 };
 
-// Fungsi helper untuk set text dengan aman
 function safeSetText(id, text) {
   const el = safeGetElement(id);
   if (el) el.textContent = text;
@@ -392,20 +383,14 @@ function safeSetPlaceholder(id, text) {
   if (el) el.placeholder = text;
 }
 
-// ── Helper: apply teks about.html ──
 function applyAboutLang(t) {
-  // Tombol kembali
   safeSetText("back-text", t.backText);
-
-  // Skills
   safeSetText("skill1-desc", t.skill1Desc);
   safeSetText("skill2-desc", t.skill2Desc);
   safeSetText("skill3-desc", t.skill3Desc);
   safeSetText("skill4-desc", t.skill4Desc);
   safeSetText("skill5-desc", t.skill5Desc);
   safeSetText("skill6-desc", t.skill6Desc);
-
-  // Experience
   safeSetText("exp1-title", t.exp1Title);
   safeSetText("exp1-desc", t.exp1Desc);
   safeSetText("cert1-btn", t.cert1Btn);
@@ -415,8 +400,6 @@ function applyAboutLang(t) {
   safeSetText("exp3-title", t.exp3Title);
   safeSetText("exp3-desc", t.exp3Desc);
   safeSetText("cert3-btn", t.cert3Btn);
-
-  // Education
   safeSetText("edu1-year", t.edu1Year);
   safeSetText("edu1-name", t.edu1Name);
   safeSetText("edu1-desc", t.edu1Desc);
@@ -427,14 +410,10 @@ function applyAboutLang(t) {
   safeSetText("edu3-name", t.edu3Name);
   safeSetText("edu3-major", t.edu3Major);
   safeSetText("edu3-desc", t.edu3Desc);
-
-  // Toolbox
   safeSetText("toolbox-desc", t.toolboxDesc);
 }
 
-// APPLY ENGLISH
 function setEnglish() {
-  // Nav links
   getNavLinks().forEach((a, i) => {
     const span = a.querySelector("span");
     if (span && enText.nav[i]) span.textContent = enText.nav[i];
@@ -501,11 +480,9 @@ function setEnglish() {
   safeSetText("footer-linkedin", f.linkedin);
   safeSetText("footer-instagram", f.instagram);
 
-  // ── TAMBAHAN: terapkan ke about.html ──
   applyAboutLang(enText.about);
 }
 
-// APPLY INDONESIA
 function setIndonesia() {
   getNavLinks().forEach((a, i) => {
     const span = a.querySelector("span");
@@ -573,11 +550,9 @@ function setIndonesia() {
   safeSetText("footer-linkedin", f.linkedin);
   safeSetText("footer-instagram", f.instagram);
 
-  // ── TAMBAHAN: terapkan ke about.html ──
   applyAboutLang(originalText.about);
 }
 
-// BUTTON EVENT
 safeGetElements(".lang-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     safeGetElements(".lang-btn").forEach(b => b.classList.remove("active"));
@@ -588,13 +563,10 @@ safeGetElements(".lang-btn").forEach(btn => {
   });
 });
 
-// ── SINKRONISASI BAHASA ANTAR HALAMAN ──
-// Saat about.html dibuka, cek apakah user sudah pilih EN sebelumnya
 document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("preferredLang");
   if (savedLang === "en") {
     currentLang = "en";
-    // Tandai tombol EN sebagai aktif
     safeGetElements(".lang-btn").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.lang === "en");
     });
@@ -602,7 +574,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Simpan pilihan bahasa ke localStorage saat berganti
 safeGetElements(".lang-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     localStorage.setItem("preferredLang", btn.dataset.lang);
